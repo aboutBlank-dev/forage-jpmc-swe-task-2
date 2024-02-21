@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Table } from "@finos/perspective";
 import { ServerRespond } from "./DataStreamer";
-import "./Graph.css";
+import "./StockAskGraph.css";
 
 /**
  * Props declaration for <Graph />
