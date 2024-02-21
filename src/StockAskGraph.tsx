@@ -22,7 +22,7 @@ interface PerspectiveViewerElement extends HTMLElement {
  * React component that renders Perspective based on data
  * parsed from its parent through data property.
  */
-class Graph extends Component<IProps, {}> {
+class StockAskGraph extends Component<IProps, {}> {
   // Perspective table
   table: Table | undefined;
 
@@ -50,11 +50,12 @@ class Graph extends Component<IProps, {}> {
       // Load the `table` in the `<perspective-viewer>` DOM reference.
       elem.load(this.table);
       // Add more Perspective configurations
-      elem.setAttribute("view", "y_line");                       // Set the graph to a line graph
-      elem.setAttribute("column-pivots", '["stock"]');           // Set what will represent each "line" in the graph
-      elem.setAttribute("row-pivots", '["timestamp"]');          // "X-axis" of the graph, will be the timestamp
-      elem.setAttribute("columns", '["top_ask_price"]');         // Only show the top_ask_price in the graph
-      elem.setAttribute(                                         // Handle the aggregation of the data (duplicates)
+      elem.setAttribute("view", "y_line"); // Set the graph to a line graph
+      elem.setAttribute("column-pivots", '["stock"]'); // Set what will represent each "line" in the graph
+      elem.setAttribute("row-pivots", '["timestamp"]'); // "X-axis" of the graph, will be the timestamp
+      elem.setAttribute("columns", '["top_ask_price"]'); // Only show the top_ask_price in the graph
+      elem.setAttribute(
+        // Handle the aggregation of the data (duplicates)
         "aggregates",
         `{
         "stock":"distinct count",
@@ -86,4 +87,4 @@ class Graph extends Component<IProps, {}> {
   }
 }
 
-export default Graph;
+export default StockAskGraph;

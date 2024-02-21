@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import DataStreamer, { ServerRespond } from "./DataStreamer";
-import Graph from "./Graph";
+import StockAskGraph from "./StockAskGraph";
 import "./App.css";
 
 const REFRESH_INTERVAL_MS = 100;
@@ -33,7 +33,7 @@ class App extends Component<{}, IState> {
    */
   renderGraph() {
     if (!this.state.showGraph) return <div></div>; //Render nothing if showGraph is false
-    return <Graph data={this.state.data} />;
+    return <StockAskGraph data={this.state.data} />;
   }
 
   /**
